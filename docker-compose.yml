@@ -135,3 +135,24 @@ services:
       - monitor-net
     labels:
       org.label-schema.group: "monitoring"
+
+  mongodb:
+    image: 'bitnami/mongodb:latest'
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGODB_USERNAME=my_user
+      - MONGODB_PASSWORD=password123
+      - MONGODB_DATABASE=my_database
+  
+  redis:
+    image: 'bitnami/redis:latest'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - '6379:6379'
+
+  mongoclient:
+    image: 'mongoclient/mongoclient'
+    # ports:
+      # - '3000:3000'
